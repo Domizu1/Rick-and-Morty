@@ -1,18 +1,21 @@
 import CardComponent from "../../components/CharacterCard"
-import { useState } from "react"
+import { useState , useEffect} from "react"
+import getCharacters from "../../api/getCharacters";
+import './charachters.css'; 
+
 
 function Charachters(){
     const [searchQuery, setSearchQuery] = useState("");
-
-    const charachters = [
-        {id: 1, name: "rick", status:"alive"},
-        {id: 2, name: "morty", status:"alive"},
-        {id: 3, name: "summer", status:"alive"},
-    ]
+    const [charachters, setCharacters] = useState([]);
+ 
     
     const handleSearch = (e) => {
         e.preventDefault()
     }
+
+    useEffect(() => {  
+    getCharacters(setCharacters)
+    },[])
 
     return(
         <div className="home-page">
@@ -27,7 +30,7 @@ function Charachters(){
                 <button type="submit" className="submit-btn">Search</button>
             </form>
             <div className="char-grid">
-                {charachters.map(charInfo => <CardComponent charInfo={charInfo} key={charInfo.id}/> )}  
+                {charachters.map(item => <CardComponent item={item} key={item.id}/> )}  
             </div>
         </div>
     )
