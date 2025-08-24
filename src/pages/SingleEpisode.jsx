@@ -34,13 +34,11 @@ export default function SingleEpisode() {
 
     return () => { cancel = true; };
   }, [id]);
-
-  // 2) Kada epizoda stigne, batchem pokupi likove da prikažemo imena
   useEffect(() => {
     if (!episode?.characters?.length) return;
 
     const ids = episode.characters.map(getIdFromUrl).filter(Boolean);
-    const groups = chunk(ids, 20); // sigurnije u chunkovima
+    const groups = chunk(ids, 20);
 
     Promise.all(
       groups.map((g) =>
@@ -52,7 +50,6 @@ export default function SingleEpisode() {
         setCharacters(flat.map((c) => ({ id: c.id, name: c.name })));
       })
       .catch(() => {
-        // fallback: samo ID-jevi ako poziv padne
         setCharacters(ids.map((cid) => ({ id: Number(cid), name: `Character #${cid}` })));
       });
   }, [episode]);
