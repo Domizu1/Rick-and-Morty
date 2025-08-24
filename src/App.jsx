@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import CardComponent from './components/CharacterCard'
 import Charachters from './pages/characters/Characters'
 import { Routes, Route } from 'react-router-dom'
-import Episode from './pages/SingleEpisode'
-import Location from './pages/SingleLocation'
+import SingleEpisode from './pages/SingleEpisode'
+import SingleLocation from './pages/SingleLocation'
 import NavBar from './components/NavBar'
 import SingleCharacter from './pages/characters/SingleCharacter'
 
@@ -16,8 +15,8 @@ return (
     <Routes>
       <Route path="/" element={<Charachters />} />
       <Route path="/character/:id" element={<SingleCharacter />} />
-      <Route path="/Episode" element={<Episode />} />
-      <Route path="/Location" element={<Location />} />
+          <Route path="/episode/:id" element={<SingleEpisode />} />
+          <Route path="/location/:id" element={<SingleLocation />} />
     </Routes>
 
   </main>
