@@ -27,6 +27,27 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  position: relative;
+  display: inline-block;
+}
+.single-char-name::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 6px;
+  background: var(--accent-2, #22d3ee);
+  border-radius: 1px;
+  animation: caret-blink 0.9s steps(1, end) infinite;
+  vertical-align: -0.1em;
+}
+
+@keyframes caret-blink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .single-char-name::after { animation: none; }
 }
 .single-char-box1,
 .single-char-box2,

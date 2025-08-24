@@ -104,7 +104,6 @@ export default function Charachters() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className="submit-btn">Search</button>
       </form>
 
       {err && <p style={{ color: "salmon" }}>Error: {err}</p>}
