@@ -6,7 +6,7 @@ function CardComponent({ item }) {
     <Link to={`/character/${item.id}`} state={{ item }} className="linkComp">
     <div className="charCard">
       <div>
-        <img src={item.image} alt="Rick and Morty character" width="100" />
+        <img src={item.image} alt="Rick and Morty character" width="100"/>
       </div>
       <div className="charInfo">
   <h1>{item.name}</h1>

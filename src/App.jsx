@@ -15,8 +15,8 @@ return (
     <Routes>
       <Route path="/" element={<Charachters />} />
       <Route path="/character/:id" element={<SingleCharacter />} />
-          <Route path="/episode/:id" element={<SingleEpisode />} />
-          <Route path="/location/:id" element={<SingleLocation />} />
+      <Route path="/episode/:id" element={<SingleEpisode />} />
+      <Route path="/location/:id" element={<SingleLocation />} />
     </Routes>
 
   </main>
