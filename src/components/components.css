@@ -29,6 +29,16 @@ body{
   min-height: 2.6em;
   line-height: 1.3em;
 }
+.linkComp {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.linkComp:hover {
+  text-decoration:none;
+  color: inherit;
+}
 .charCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);

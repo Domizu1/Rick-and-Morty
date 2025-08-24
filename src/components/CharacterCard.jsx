@@ -3,6 +3,7 @@ import './components.css';
 
 function CardComponent({ item }) {
   return (
+    <Link to={`/character/${item.id}`} state={{ item }} className="linkComp">
     <div className="charCard">
       <div>
         <img src={item.image} alt="Rick and Morty character" width="100" />
@@ -21,7 +22,11 @@ function CardComponent({ item }) {
     </div>
   </div>
 </div>
+
+
     </div>
+    </Link>
+    
   );
 }
 
