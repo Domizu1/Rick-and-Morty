@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import './App.css'
 import Charachters from './pages/characters/Characters'
 import { Routes, Route } from 'react-router-dom'
 import SingleEpisode from './pages/SingleEpisode'

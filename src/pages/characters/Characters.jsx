@@ -10,11 +10,12 @@ function useDebounced(value, delay = 350) {
   }, [value, delay]);
   return v;
 }
+
 export default function Charachters() {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedQuery = useDebounced(searchQuery, 350);
 
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);   
   const [nextUrl, setNextUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
@@ -92,11 +93,9 @@ export default function Charachters() {
     return () => obs.disconnect();
   }, [loadMore]);
 
-  const onSubmit = (e) => e.preventDefault();
-
   return (
     <div className="home-page">
-      <form onSubmit={onSubmit} className="search-form">
+      <div className="search-form">
         <input
           type="text"
           placeholder="Search Your Favorite Character..."
@@ -104,7 +103,7 @@ export default function Charachters() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-      </form>
+      </div>
 
       {err && <p style={{ color: "salmon" }}>Error: {err}</p>}
 

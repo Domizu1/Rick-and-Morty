@@ -1,4 +1,3 @@
-// pages/SingleEpisode.jsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import EpisodeCard from "../components/EpisodeCard";
@@ -15,7 +14,6 @@ export default function SingleEpisode() {
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
 
-  // 1) Fetch same epizode
   useEffect(() => {
     let cancel = false;
     setLoading(true);
