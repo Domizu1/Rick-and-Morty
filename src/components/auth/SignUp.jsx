@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/authContext";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { useNavigate, Link } from "react-router-dom";
+import "./signup.css";
 
 const SignUp = () => {
     const { login } = useContext(AuthContext);
@@ -37,31 +38,34 @@ const SignUp = () => {
     };
 
     return (
-        <div style={{ marginTop: "100px" }}>
-            <h1>Sign up</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <br />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <br />
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>Already have an account?</p>
-            <Link to="/login"> Login</Link>
-            {message && <p>{message}</p>}
-        </div>
+
+        <div className="signup-page">
+            <div className="signup-card">
+                <h1>Sign up</h1>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <br />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <br />
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account?</p>
+                <Link to="/login"> Login</Link>
+                {message && <p>{message}</p>}
+            </div>
+        </div >
     );
 };
 
