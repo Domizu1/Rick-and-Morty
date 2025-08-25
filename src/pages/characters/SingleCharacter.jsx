@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import SingleCharacterCard from "../../components/singleCharacterCard";
+import SingleCharacterCard from "../../components/character/SingleCharacterCard";
 
 export default function SingleCharacter() {
   const { id } = useParams();

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./SingleChar.css";
+import "./singleChar.css";
 const getIdFromUrl = (url) => url?.split("/").filter(Boolean).pop() ?? null;
 
 function SingleCharacterCard({ item }) {
@@ -17,7 +17,7 @@ function SingleCharacterCard({ item }) {
       .then((res) => res.json())
       .then((data) => setEpisodes(Array.isArray(data) ? data : [data]))
       .catch((err) => console.error("Error fetching episodes:", err));
-  }, [item]); 
+  }, [item]);
 
   return (
     <div className="singleCharCard">

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import CardComponent from "../../components/CharacterCard";
-import "./charachters.css";
+import CharacterCard from "../../components/character/CharacterCard";
+import "./characters.css"
 
 function useDebounced(value, delay = 350) {
   const [v, setV] = useState(value);
@@ -15,7 +15,7 @@ export default function Charachters() {
   const [searchQuery, setSearchQuery] = useState("");
   const debouncedQuery = useDebounced(searchQuery, 350);
 
-  const [items, setItems] = useState([]);   
+  const [items, setItems] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
@@ -28,7 +28,7 @@ export default function Charachters() {
   const firstUrl = useMemo(() => {
     const base = "https://rickandmortyapi.com/api/character/";
     return debouncedQuery ? `${base}?name=${encodeURIComponent(debouncedQuery)}&page=1`
-                          : `${base}?page=1`;
+      : `${base}?page=1`;
   }, [debouncedQuery]);
   useEffect(() => {
     setItems([]);
@@ -109,7 +109,7 @@ export default function Charachters() {
 
       <div className="char-grid">
         {items.map((item) => (
-          <CardComponent key={item.id} item={item} />
+          <CharacterCard key={item.id} item={item} />
         ))}
       </div>
 
